@@ -1,9 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SuggestionsList = ({suggestions, loading, onSelect}) => (
+    // Using famer-motion components for beautiful animations
     <AnimatePresence>
         {
             (loading || suggestions.length > 0) && (
+                // This div will actually encapsulate the animation behavior
                 <motion.div
                 initial={{opacity: 0, y: -10}}
                 animate={{opacity: 1, y: 0}}

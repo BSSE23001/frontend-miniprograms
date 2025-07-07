@@ -15,13 +15,27 @@ const UserSearch = () => {
         inputRef.current.focus();
     }, []);
 
+    // The following useEffect is doing the debouncing technique
+    // The technique is that we run a functionality only when
+    // we are sure that it will not be inturrupted at least for
+    // a few seconds to minutes.
+    // The technique is usable when we are doing searchings from api,
+    // suggestions building, manual form validation etc...
+    // This technique make use of setTimeout((),x) functionality which
+    // registers a function to run after every 'x' seconds had first passed
+    // If an inturruption occurse before that, it clears the registration
+    // and carries out the funtionality for new query preventing race conditions    
+
     useEffect(() => {
         if(!query) {
             setSuggestions([]);
             return;
         }
 
+        // Setting up the controller
         const controller = new AbortController();
+
+        // Registering the timeout function
         const handler = setTimeout(async () => {
             setLoading(true);
             try {
@@ -36,6 +50,7 @@ const UserSearch = () => {
         },500);
 
         return () => {
+            // Clearing the function before proceeding for new query
             clearTimeout(handler);
             controller.abort();
         };
