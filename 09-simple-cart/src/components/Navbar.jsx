@@ -5,7 +5,7 @@ export const Navbar = () => {
     const { getTotalItems } = useCart();
 
     return (
-        <nav className="block w-full max-w-screen-lg px-4 py-2 mx-auto bg-white shadow-md rounded-md lg:px-8 lg:py-3 mt-10 hover:bg-gray-200">
+        <nav className="block w-full max-w-screen-lg px-4 mx-auto bg-white shadow-md rounded-md lg:px-8 lg:py-3 mt-2 hover:bg-gray-200">
             <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
                 <span className="mr-4 block py-1.5 text-base text-slate-800 font-semibold">
                     Simple Add to Cart Program
@@ -34,7 +34,7 @@ export const Navbar = () => {
                                         </button>
                                     </div>
                                     <span className="absolute right-[6%] top-[6%] grid min-h-[10px] min-w-[10px] -translate-y-1/2 translate-x-1/2 place-items-center rounded-full border border-slate-800 bg-slate-800 px-1 py-0.5 text-xs leading-none text-slate-50">
-                                        {getTotalItems()}
+                                        { getTotalItems() }
                                     </span>
                                 </div>
                             </NavLink>

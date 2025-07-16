@@ -24,7 +24,7 @@ const ProductDetails = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-transparent">
-        <div className="shadow-sm my-6 w-60">
+        <div className="shadow-sm my-2 w-60">
             <img className="w-full h-full" src={product.image} alt={product.title} />
         </div>
         <div className="p-6 text-center">
