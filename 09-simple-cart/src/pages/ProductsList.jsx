@@ -26,13 +26,13 @@ const ProductsList = () => {
         <div className="flex flex-wrap justify-center gap-6">
             <ul className="flex flex-col gap-0.5 min-w-60">
             {products.map((product) => (
-                <li key={product.id} className="flex items-center cursor-pointer py-1.5 px-2.5 rounded-md align-middle transition-all duration-300 ease-in aria-disabled:opacity-50 aria-disabled:pointer-events-none bg-transparent text-slate-600 hover:text-slate-800 dark:hover:text-white hover:bg-slate-200 focus:bg-slate-200 focus:text-slate-800 dark:focus:text-white data-[selected=true]:bg-slate-200 data-[selected=true]:text-black dark:data-[selected=true]:text-white dark:bg-opacity-70">
+                <li key={product.id} className="flex items-center cursor-pointer py-1.5 px-2.5 rounded-md align-middle transition-all duration-300 ease-in aria-disabled:opacity-50 aria-disabled:pointer-events-none bg-transparent text-slate-600 hover:text-slate-800 hover:bg-slate-100">
                     <span className="grid place-items-center shrink-0 me-2.5">
                         <img src={product.image} alt={product.title} className="inline-block object-cover object-center data-[shape=square]:rounded-none data-[shape=circular]:rounded-full data-[shape=rounded]:rounded-[current] w-11 h-11 rounded-md"/>
                     </span>
                 <div>
-                    <p className="font-sans antialiased text-base text-slate-800 font-semibold">{product.title}</p>
-                    <small className="block w-full text-left font-sans antialiased text-sm text-slate-600">{product.price.toFixed(2)} | {product.category}</small>
+                    <p className="font-sans antialiased text-left text-base text-slate-800 font-semibold pr-4">{product.title}</p>
+                    <small className="block w-full text-left font-sans antialiased text-sm text-slate-600">Rs. {product.price.toFixed(2)} | Category: {product.category}</small>
                 </div>
                 <button
                 onClick={() => {
