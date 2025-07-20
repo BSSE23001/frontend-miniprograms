@@ -1,12 +1,13 @@
 import { useState } from "react";
-import AddTask from "../components/AddTask";
-import TaskList from "../components/TaskList";
+import { Task } from "@/types";
+import AddTask from "@/components/AddTask";
+import TaskList from "@/components/TaskList";
 
 export default function Home() {
-  const [ tasks, setTasks ] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
-  const addTask = (text) => {
-    const newTask = {
+  const addTask = (text: string) => {
+    const newTask: Task = {
       id: Date.now(),
       text,
       completed: false
@@ -14,12 +15,13 @@ export default function Home() {
     setTasks((prev) => [...prev, newTask]);
   };
 
-  const toggleTask = (id) => {
-    setTasks((prev) =>
-    prev.map((t) =>
-    t.id === id ? {...t, completed: !t.completed} : t));
+  const toggleTask = (id: number) => {
+    setTasks(prev =>
+      prev.map(task =>
+        task.id === id ? {...task, completed: !task.completed} : task
+      )
+    );
   };
-
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="p-6 border-2 rounded-3xl bg-gray-50 shadow-2xl text-xl text-blue-950 space-y-5">
